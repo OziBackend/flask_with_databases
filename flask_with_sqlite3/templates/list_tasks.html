@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Tasks</title>
+</head>
+<body>
+    <h1>List of Tasks</h1>
+    <a href="/">Home</a>
+    <br>
+    <br>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{ row['id'] }}</td>
+            <td>{{ row['name'] }}</td>
+            <td>{{ row['description'] }}</td>
+            <td>
+                <a href="/edit-task/{{ row['id'] }}">Edit</a>
+                <a href="/delete-task/{{ row['id'] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
